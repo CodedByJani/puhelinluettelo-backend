@@ -1,0 +1,39 @@
+### Poista henkilö id:llä 2
+DELETE http://localhost:3001/api/persons/2
+
+### Hae kaikki henkilöt
+GET http://localhost:3001/api/persons
+
+### Lisää uusi henkilö
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Uusi Henkilö",
+  "number": "123-456789"
+}
+
+### Lisää henkilö ilman nimeä (virhe)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "number": "123-456789"
+}
+
+### Lisää henkilö ilman numeroa (virhe)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Pelkkä Nimi"
+}
+
+### Lisää henkilö, jonka nimi on jo listalla (virhe)
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Arto Hellas",
+  "number": "000-000000"
+}
