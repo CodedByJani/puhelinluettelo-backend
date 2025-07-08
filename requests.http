@@ -1,4 +1,4 @@
-### Poista henkilö id:llä (korvaa ID MongoDB:n id:llä)
+### Poista henkilö id:llä
 DELETE http://localhost:3001/api/persons/6864d0e5a03db236f5795557
 
 ### Hae kaikki henkilöt
@@ -13,7 +13,7 @@ Content-Type: application/json
   "number": "123-456789"
 }
 
-### Lisää henkilö ilman nimeä (virhe)
+### Lisää henkilö ilman nimeä
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
@@ -21,7 +21,7 @@ Content-Type: application/json
   "number": "123-456789"
 }
 
-### Lisää henkilö ilman numeroa (virhe)
+### Lisää henkilö ilman numeroa
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
@@ -29,7 +29,7 @@ Content-Type: application/json
   "name": "Pelkkä Nimi"
 }
 
-### Lisää henkilö, jonka nimi on jo listalla (tähän asti ei tarkistusta tietokannan tasolla)
+### Lisää henkilö, jonka nimi on jo listalla
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
