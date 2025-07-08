@@ -1,5 +1,5 @@
-### Poista henkilö id:llä 2
-DELETE http://localhost:3001/api/persons/2
+### Poista henkilö id:llä (korvaa ID MongoDB:n id:llä)
+DELETE http://localhost:3001/api/persons/6864d0e5a03db236f5795557
 
 ### Hae kaikki henkilöt
 GET http://localhost:3001/api/persons
@@ -9,7 +9,7 @@ POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-  "name": "Uusi Henkilö",
+  "name": "Uusi_nimi",
   "number": "123-456789"
 }
 
@@ -29,11 +29,29 @@ Content-Type: application/json
   "name": "Pelkkä Nimi"
 }
 
-### Lisää henkilö, jonka nimi on jo listalla (virhe)
+### Lisää henkilö, jonka nimi on jo listalla (tähän asti ei tarkistusta tietokannan tasolla)
 POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
   "name": "Arto Hellas",
   "number": "000-000000"
+}
+
+### Lisää henkilö Testi Testinen
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "name": "Testi Testinen",
+  "number": "040-9999999"
+}
+
+### Päivitä olemassa oleva henkilö
+PUT http://localhost:3001/api/persons/686b86eb470f82dc08a4277e
+Content-Type: application/json
+
+{
+  "name": "Arto Hellas",
+  "number": "999-9999999"
 }
