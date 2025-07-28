@@ -1,9 +1,9 @@
-require('dotenv').config(); // .env-tiedoston käyttö
+require('dotenv').config();
 
 const express = require('express');
 const morgan = require('morgan');
-const mongoose = require('mongoose'); // 🔥 tämä puuttui!
-const Person = require('./models/person'); // MongoDB-malli
+const mongoose = require('mongoose');
+const Person = require('./models/person');
 
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URI)
@@ -25,7 +25,6 @@ morgan.token('body', (req) => {
 });
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'));
 
-// Hae kaikki henkilöt tietokannasta
 app.get('/api/persons', (req, res, next) => {
   Person.find({})
     .then(persons => {
@@ -34,8 +33,6 @@ app.get('/api/persons', (req, res, next) => {
     .catch(error => next(error));
 });
 
-
-// Info-sivu toimii edelleen kovakoodattuna
 app.get('/info', (req, res, next) => {
   Person.find({})
     .then(persons => {
